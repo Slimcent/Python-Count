@@ -1,16 +1,33 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from tkinter import messagebox
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def pattern_count(text, pattern):
+    count = 0
+    for i in range(len(text) - len(pattern) + 1):
+        if text[i:i + len(pattern)] == pattern:
+            count = count + 1
+    return count
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+Test = "ATCAATGATCAACGTAAGCTTCTAAGCATGATCAAGGTGCTCACACAGT" \
+       "TTATCCACAACCTGAGTGGATGACATCAAGATAGGTCGTTGTATCTCCTTCCTCTCGTACTCTCAT" \
+       "GACCACGGAAAGATGATCAAGAGAGGATGATTTCTTGGCCATATCGCAATGAATACTTGTGACTTGTGCT" \
+       "TCCAATTGACATCTTCAGCGCCATATTGCGCTGGCCAAGGTGACGGAGCGGGATTACGAAAGCATGATCATGGC" \
+       "TGTTGTTCTGTTTATCTTGTTTTGACTGAGACTTGTTAGGATAGACGGTTTTTCATCACTGACTAGCCAAAGCCTTA" \
+       "CTCTGCCTGACATCGACCGTAAATTGATAATGAATTTACATGCTTCCGCGACGATTTACCTCTTGATCATCGATCCGATT" \
+       "GAAGATCTTCAATTGTTAATTCTCTTGCCTCGACTCATAGCCATGATGAGCTCTTGATCATGTTTCCTTAACCCTCTATTTTT" \
+       "TACGGAAGAATGATCAAGCTGCTGCTCTTGATCATCGTTTC"
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+pattern1 = "TGATCA"
+t = "ACTGTACGATGATGTGTGTCAAAG"
+
+length = len("ACTGTACGATGATGTGTGTCAAAG")
+counting = pattern_count("ACTGTACGATGATGTGTGTCAAAG", "TGT")
+
+title = "Pattern Count"
+messagebox.showinfo(title, f"The pattern count is {counting}")
+
+for x in range(len(t) - len("TGT") + 1):
+    print(x)
+    myTest = t[x:x + len("TGT")]
+    print(myTest)
